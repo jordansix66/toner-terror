@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dex08jf8mtau6"]
+
+[ext_resource type="Script" uid="uid://o62gbnkkuphx" path="res://copy_button.gd" id="1_ig7tw"]
+
+[node name="Main" type="Control" unique_id=2122626176]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="." unique_id=486392635]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.09411765, 0.101960786, 0.1254902, 1)
+
+[node name="WorkArea" type="CenterContainer" parent="." unique_id=252750302]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InterfaceStack" type="VBoxContainer" parent="WorkArea" unique_id=1984340381]
+layout_mode = 2
+
+[node name="OrderLabel" type="Label" parent="WorkArea/InterfaceStack" unique_id=1622082638]
+layout_mode = 2
+text = "ORDER: MAKE 3 COPIES"
+horizontal_alignment = 1
+
+[node name="SizeControls" type="HBoxContainer" parent="WorkArea/InterfaceStack" unique_id=241565104]
+layout_mode = 2
+
+[node name="ReduceButton" type="Button" parent="WorkArea/InterfaceStack/SizeControls" unique_id=2137585986]
+layout_mode = 2
+text = "50%"
+
+[node name="NormalButton" type="Button" parent="WorkArea/InterfaceStack/SizeControls" unique_id=746612758]
+layout_mode = 2
+text = "100%"
+
+[node name="EnlargeButton" type="Button" parent="WorkArea/InterfaceStack/SizeControls" unique_id=1688874]
+layout_mode = 2
+text = "150%"
+
+[node name="CopyButton" type="Button" parent="WorkArea/InterfaceStack" unique_id=975949127]
+custom_minimum_size = Vector2(240, 80)
+layout_mode = 2
+text = "MAKE COPY"
+script = ExtResource("1_ig7tw")

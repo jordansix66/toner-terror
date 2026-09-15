@@ -1,0 +1,129 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://station_placeholder.gd" id="1_placeholder"]
+
+[sub_resource type="StyleBoxFlat" id="Style_panel"]
+bg_color = Color(0.97, 0.98, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.25, 0.39, 0.55, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+content_margin_left = 42.0
+content_margin_top = 36.0
+content_margin_right = 42.0
+content_margin_bottom = 36.0
+
+[sub_resource type="StyleBoxFlat" id="Style_button"]
+bg_color = Color(0.04, 0.45, 0.55, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.35, 0.94, 0.87, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+
+[node name="StationPlaceholder" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_placeholder")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.9, 0.93, 0.96, 1)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="PanelContainer" parent="Center"]
+custom_minimum_size = Vector2(760, 390)
+layout_mode = 2
+theme_override_styles/panel = SubResource("Style_panel")
+
+[node name="Content" type="VBoxContainer" parent="Center/Panel"]
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="StationTitle" type="Label" parent="Center/Panel/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.03, 0.34, 0.44, 1)
+theme_override_font_sizes/font_size = 34
+text = "WORKSTATION"
+horizontal_alignment = 1
+
+[node name="StationDescription" type="Label" parent="Center/Panel/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.12, 0.18, 0.25, 1)
+theme_override_font_sizes/font_size = 20
+text = "WORKSTATION DESCRIPTION"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Separator" type="HSeparator" parent="Center/Panel/Content"]
+layout_mode = 2
+
+[node name="DevelopmentLabel" type="Label" parent="Center/Panel/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.35, 0.43, 0.52, 1)
+theme_override_font_sizes/font_size = 16
+text = "THIS WORKSTATION IS READY FOR ITS NEXT DEVELOPMENT STEP."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ExitHint" type="Label" parent="Center/Panel/Content"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.35, 0.43, 0.52, 1)
+theme_override_font_sizes/font_size = 13
+text = "SPACE: EXIT STATION"
+horizontal_alignment = 2
+
+[node name="ExitStationButton" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -230.0
+offset_top = -70.0
+offset_right = -28.0
+offset_bottom = -22.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.95, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("Style_button")
+theme_override_styles/hover = SubResource("Style_button")
+theme_override_styles/pressed = SubResource("Style_button")
+theme_override_styles/focus = SubResource("Style_button")
+text = "EXIT STATION"
