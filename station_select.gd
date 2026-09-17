@@ -38,10 +38,13 @@ func _refresh_text() -> void:
 
 func _open_station(station_id: String) -> void:
 	GameState.current_station = station_id
-	if station_id == "copier":
-		get_tree().change_scene_to_file("res://prototype.tscn")
-	else:
-		get_tree().change_scene_to_file("res://station_placeholder.tscn")
+	match station_id:
+		"copier":
+			get_tree().change_scene_to_file("res://prototype.tscn")
+		"cutting":
+			get_tree().change_scene_to_file("res://cutting_station.tscn")
+		_:
+			get_tree().change_scene_to_file("res://station_placeholder.tscn")
 
 
 func _back_to_menu() -> void:
