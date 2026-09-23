@@ -34,17 +34,20 @@ func _refresh_text() -> void:
 			Locale.station_name(station_id),
 			Locale.station_description(station_id)
 		]
+		if not GameState.active_order.is_empty():
+			var count := 0
+			for item: Dictionary in GameState.batches():
+				if GameState.next_stage(item) == station_id:
+					count += 1
+			if station_id == "counter" and GameState.can_deliver():
+				button.text += "\n" + GameState.tr_pair("PEDIDO PRONTO PARA ENTREGA", "ORDER READY FOR DELIVERY")
+			elif count > 0:
+				button.text += "\n" + GameState.tr_pair("%d LOTE(S) AGUARDANDO", "%d BATCH(ES) WAITING") % count
 
 
 func _open_station(station_id: String) -> void:
 	GameState.current_station = station_id
-	match station_id:
-		"copier":
-			get_tree().change_scene_to_file("res://prototype.tscn")
-		"cutting":
-			get_tree().change_scene_to_file("res://cutting_station.tscn")
-		_:
-			get_tree().change_scene_to_file("res://station_placeholder.tscn")
+	get_tree().change_scene_to_file(GameState.scene_for(station_id))
 
 
 func _back_to_menu() -> void:

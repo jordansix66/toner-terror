@@ -60,7 +60,8 @@ func _start_game() -> void:
 	var fade := create_tween()
 	fade.tween_property(self, "modulate:a", 0.0, 0.28)
 	await fade.finished
-	get_tree().change_scene_to_file("res://station_select.tscn")
+	GameState.current_station = "counter"
+	get_tree().change_scene_to_file("res://service_counter.tscn")
 
 
 func _quit_game() -> void:
